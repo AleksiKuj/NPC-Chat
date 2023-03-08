@@ -41,7 +41,6 @@ export default function App() {
   async function getCharacters() {
     try {
       if (game === "League of Legends") {
-        console.log("lol")
         const response = await axios.get(
           `https://ddragon.leagueoflegends.com/cdn/13.4.1/data/en_US/champion.json`
         )
@@ -53,10 +52,8 @@ export default function App() {
           }))
         )
       } else {
-        console.log("tf2")
         const response = await axios.get("/api/tf2characters")
         setCharacters(response.data)
-        console.log(response.data)
         setOptions(
           response.data.characters.map((character) => ({
             value: character,
